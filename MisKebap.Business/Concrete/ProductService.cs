@@ -92,10 +92,9 @@ namespace MisKebap.Business.Concrete
                 }).ToListAsync();
         }
 
-        public async Task<bool> IsUniqueProduct(string name)
+        public bool HasAnyProductName(string productName)
         {
-            var product = await _misKebapContext.Products.Where(q => !q.IsDeleted).Select(q => q.Name).ToListAsync();
-            return !product.Contains(name);
+            return _misKebapContext.Products.Where(p => !p.IsDeleted && p.Name == productName.ToLower()).Any();
         }
 
         public Task<int> Update(ProductUpdateDto productUpdateDto)
@@ -109,7 +108,7 @@ namespace MisKebap.Business.Concrete
                 return Task.FromResult(-1);
             }
 
-            if (item == null)
+            if (category == null)
             {
                 //kategori bulunamadi
                 return Task.FromResult(-2);
