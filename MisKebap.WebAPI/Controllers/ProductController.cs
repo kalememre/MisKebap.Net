@@ -76,7 +76,7 @@ namespace MisKebap.WebAPI.Controllers
         }
 
         // PUT api/values/5
-        [HttpPut("{id}")]
+        [HttpPut]
         public async Task<ActionResult<string>> Put(ProductUpdateDto productUpdateDto)
         {
             var list = new List<string>();
