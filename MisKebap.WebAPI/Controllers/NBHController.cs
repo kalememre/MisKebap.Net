@@ -21,7 +21,7 @@ namespace MisKebap.WebAPI.Controllers
         }
         // GET: api/values
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public async Task<ActionResult<List<NBHViewDto>>> Get()
         {
             var nbhList = await _NBHService.GetAll();
@@ -50,7 +50,7 @@ namespace MisKebap.WebAPI.Controllers
 
         // POST api/values
         [HttpPost]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public async Task<ActionResult<string>> Post(NBHAddDto NBHAddDto)
         {
             var list = new List<string>();
@@ -76,7 +76,7 @@ namespace MisKebap.WebAPI.Controllers
 
         // PUT api/values/5
         [HttpPut]
-        [Authorize(Roles = "admin")]
+        //[Authorize(Roles = "admin")]
         public async Task<ActionResult<string>> Put(NBHUpdateDto NBHUpdateDto)
         {
             var list = new List<string>();
