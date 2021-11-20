@@ -96,7 +96,23 @@ namespace MisKebap.Business.Concrete
 
         public Task<int> Update(ProductUpdateDto productUpdateDto)
         {
-            throw new NotImplementedException();
+            var item = _misKebapContext.Products.FirstOrDefault(q => !q.IsDeleted && q.Id == productUpdateDto.Id);
+
+            if (item == null)
+            {
+                //guncellenecek urun bulunamadi
+                return Task.FromResult(-1);
+            }
+
+            item.Name = productUpdateDto.Name;
+            item.Price = productUpdateDto.Price;
+            item.IsEnabled = productUpdateDto.IsEnabled;
+            item.CategoryId = productUpdateDto.CategoryId;
+
+            _misKebapContext.Products.Update(item);
+            var result = _misKebapContext.SaveChangesAsync();
+
+            return result;
         }
     }
 }
