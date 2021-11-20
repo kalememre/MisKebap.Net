@@ -21,7 +21,7 @@ namespace MisKebap.Business.Concrete
 
         public Task<int> Add(ProductAddDto productAddDto)
         {
-            var category = _misKebapContext.Categories.Where(q => !q.IsDeleted && q.Id == productAddDto.CategoryId).FirstOrDefaultAsync();
+            var category = _misKebapContext.Categories.FirstOrDefault(q => !q.IsDeleted && q.Id == productAddDto.CategoryId);
 
             if (category == null) return Task.FromResult(-1);
 
