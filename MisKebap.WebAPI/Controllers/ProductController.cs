@@ -61,6 +61,9 @@ namespace MisKebap.WebAPI.Controllers
                     case > 0:
                         list.Add("Ekleme İşlemi Başarılı.");
                         return Ok(new { code = StatusCode(1000), message = list, type = "success" });
+                    case -1:
+                        list.Add("Böyle bir kategori bulunamadı");
+                        return Ok(new { code = StatusCode(1001), message = list, type = "error" });
                     default:
                         list.Add("Ekleme İşlemi Başarısız.");
                         return Ok(new { code = StatusCode(1001), message = list, type = "error" });
