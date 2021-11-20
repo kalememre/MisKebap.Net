@@ -5,7 +5,7 @@ using MisKebap.DAL.Dtos.Product;
 
 namespace MisKebap.Business.Validations.Product
 {
-    public class ProductAddValidation : AbstractValidator<ProductUpdateDto>
+    public class ProductAddValidation : AbstractValidator<ProductAddDto>
     {
         private readonly IProductService _productService;
 
