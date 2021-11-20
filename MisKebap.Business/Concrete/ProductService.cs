@@ -92,9 +92,10 @@ namespace MisKebap.Business.Concrete
                 }).ToListAsync();
         }
 
-        public bool HasAnyProductName(string productName)
+        public async Task<bool> IsUniqueProduct(string name)
         {
-            return _misKebapContext.Products.Where(p => !p.IsDeleted && p.Name == productName.ToLower()).Any();
+            var product = await _misKebapContext.Products.Where(q => !q.IsDeleted).Select(q => q.Name).ToListAsync();
+            return !product.Contains(name);
         }
 
         public Task<int> Update(ProductUpdateDto productUpdateDto)
