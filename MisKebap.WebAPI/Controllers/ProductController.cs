@@ -91,6 +91,9 @@ namespace MisKebap.WebAPI.Controllers
                     case -1:
                         list.Add("Böyle bir ürün bulunamadı");
                         return Ok(new { code = StatusCode(1001), message = list, type = "error" });
+                    case -2:
+                        list.Add("Böyle kategori bulunamadı");
+                        return Ok(new { code = StatusCode(1001), message = list, type = "error" });
                     default:
                         list.Add("Güncelleme İşlemi Başarısız.");
                         return Ok(new { code = StatusCode(1001), message = list, type = "error" });
