@@ -74,8 +74,29 @@ namespace MisKebap.WebAPI.Controllers
 
         // PUT api/values/5
         [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        public async Task<ActionResult<string>> Put(ProductUpdateDto productUpdateDto)
         {
+            var list = new List<string>();
+            try
+            {
+                var result = await _productService.Update(productUpdateDto);
+                switch (result)
+                {
+                    case > 0:
+                        list.Add("Güncelleme İşlemi Başarılı.");
+                        return Ok(new { code = StatusCode(1000), message = list, type = "success" });
+                    case -1:
+                        list.Add("Böyle bir ürün bulunamadı");
+                        return Ok(new { code = StatusCode(1001), message = list, type = "error" });
+                    default:
+                        list.Add("Güncelleme İşlemi Başarısız.");
+                        return Ok(new { code = StatusCode(1001), message = list, type = "error" });
+                }
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message + ex.InnerException);
+            }
         }
 
         // DELETE api/values/5
