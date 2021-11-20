@@ -101,11 +101,18 @@ namespace MisKebap.Business.Concrete
         public Task<int> Update(ProductUpdateDto productUpdateDto)
         {
             var item = _misKebapContext.Products.FirstOrDefault(q => !q.IsDeleted && q.Id == productUpdateDto.Id);
+            var category = _misKebapContext.Categories.FirstOrDefault(q => !q.IsDeleted && q.Id == productUpdateDto.CategoryId);
 
             if (item == null)
             {
                 //guncellenecek urun bulunamadi
                 return Task.FromResult(-1);
+            }
+
+            if (item == null)
+            {
+                //kategori bulunamadi
+                return Task.FromResult(-2);
             }
 
             item.Name = productUpdateDto.Name;
