@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Entity\" />
+    <None Remove="Microsoft.AspNetCore.Mvc.Analyzers" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Entity\" />
+  </ItemGroup>
+</Project>

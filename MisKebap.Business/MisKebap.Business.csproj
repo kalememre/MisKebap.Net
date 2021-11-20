@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Abstract\" />
+    <None Remove="Concrete\" />
+    <None Remove="Validations\" />
+    <None Remove="Validations\Auth\" />
+    <None Remove="FluentValidation" />
+    <None Remove="Validations\NBH\" />
+    <None Remove="Validations\Category\" />
+    <None Remove="Validations\Other\" />
+    <None Remove="Microsoft.AspNetCore.Mvc.Analyzers" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Abstract\" />
+    <Folder Include="Concrete\" />
+    <Folder Include="Validations\" />
+    <Folder Include="Validations\Auth\" />
+    <Folder Include="Validations\NBH\" />
+    <Folder Include="Validations\Category\" />
+    <Folder Include="Validations\Other\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MisKebap.DAL\MisKebap.DAL.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="10.3.4" />
+  </ItemGroup>
+</Project>

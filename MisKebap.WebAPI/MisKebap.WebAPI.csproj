@@ -1,0 +1,37 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MisKebap.DAL\MisKebap.DAL.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\MisKebap.Business\MisKebap.Business.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+    <ProjectReference Include="..\MisKebap.Infrastructure\MisKebap.Infrastructure.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Swashbuckle.AspNetCore.SwaggerUI" />
+    <None Remove="Swashbuckle.AspNetCore.SwaggerGen" />
+    <None Remove="Swashbuckle.AspNetCore.Swagger" />
+    <None Remove="Controllers\" />
+    <None Remove="ServiceInstaller\" />
+    <None Remove="Microsoft.AspNetCore.Mvc.Analyzers" />
+    <None Remove="Microsoft.OpenApi" />
+    <None Remove="Microsoft.AspNetCore.Authentication.JwtBearer" />
+    <None Remove="Microsoft.AspNetCore.Mvc" />
+    <None Remove="Swashbuckle.AspNetCore" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+    <Folder Include="ServiceInstaller\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.6.3" />
+  </ItemGroup>
+</Project>
