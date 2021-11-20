@@ -14,6 +14,7 @@
     <None Remove="Validations\Category\" />
     <None Remove="Validations\Other\" />
     <None Remove="Microsoft.AspNetCore.Mvc.Analyzers" />
+    <None Remove="Validations\Product\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Abstract\" />
@@ -23,6 +24,7 @@
     <Folder Include="Validations\NBH\" />
     <Folder Include="Validations\Category\" />
     <Folder Include="Validations\Other\" />
+    <Folder Include="Validations\Product\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MisKebap.DAL\MisKebap.DAL.csproj" />
